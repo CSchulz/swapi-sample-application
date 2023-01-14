@@ -5,18 +5,18 @@ import { MatTable } from '@angular/material/table';
 import { CharactersDataSource, CharactersItem } from './characters-datasource';
 
 @Component({
-  selector: 'app-characters',
-  templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.css']
+  selector: 'app-character-list',
+  templateUrl: './character-list.component.html',
+  styleUrls: ['./character-list.component.css']
 })
-export class CharactersComponent implements AfterViewInit {
+export class CharacterListComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<CharactersItem>;
   dataSource: CharactersDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['name'];
 
   constructor() {
     this.dataSource = new CharactersDataSource();
