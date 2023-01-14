@@ -15,12 +15,14 @@ import { CharactersComponent } from './characters/characters.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    CharactersComponent
+    CharactersComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
