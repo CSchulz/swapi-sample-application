@@ -1,0 +1,43 @@
+<mat-card *ngIf="character$ | async as character">
+  <mat-card-header>
+    <mat-card-title>{{ character.name }}</mat-card-title>
+  </mat-card-header>
+  <img
+    mat-card-image
+    [src]="'https://via.placeholder.com/468x468?text=' + character.name"
+  />
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        {{ character.name }}
+      </mat-list-item>
+      <mat-list-item>
+        {{ character.birth_year }}
+      </mat-list-item>
+      <mat-list-item>
+        {{ character.eye_color }}
+      </mat-list-item>
+      <mat-list-item>
+        {{ character.gender }}
+      </mat-list-item>
+      <mat-list-item>
+        {{ character.hair_color }}
+      </mat-list-item>
+      <mat-list-item>
+        {{ character.height }} cm
+      </mat-list-item>
+      <mat-list-item>
+        {{ character.mass }} kg
+      </mat-list-item>
+      <mat-list-item>
+        {{ character.skin_color }}
+      </mat-list-item>
+      <mat-list-item>
+        {{ character.homeworld }}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [routerLink]="['..']">back</button>
+  </mat-card-actions>
+</mat-card>
