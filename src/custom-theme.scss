@@ -12,26 +12,26 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$henkel-dx-angular-coding-challenge-primary: mat.define-palette(mat.$indigo-palette);
-$henkel-dx-angular-coding-challenge-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$swapi-sample-application-primary: mat.define-palette(mat.$indigo-palette);
+$swapi-sample-application-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$henkel-dx-angular-coding-challenge-warn: mat.define-palette(mat.$red-palette);
+$swapi-sample-application-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$henkel-dx-angular-coding-challenge-theme: mat.define-light-theme((
+$swapi-sample-application-theme: mat.define-light-theme((
   color: (
-    primary: $henkel-dx-angular-coding-challenge-primary,
-    accent: $henkel-dx-angular-coding-challenge-accent,
-    warn: $henkel-dx-angular-coding-challenge-warn,
+    primary: $swapi-sample-application-primary,
+    accent: $swapi-sample-application-accent,
+    warn: $swapi-sample-application-warn,
   )
 ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($henkel-dx-angular-coding-challenge-theme);
+@include mat.all-component-themes($swapi-sample-application-theme);
 
 
 html, body { height: 100%; }
