@@ -1,9 +1,10 @@
 import {Component, inject} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {switchMap} from 'rxjs/operators';
 import {CharacterDetailItem} from '../model';
 import {CharacterApiService} from "../character-api.service";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-character-detail',
@@ -12,6 +13,8 @@ import {CharacterApiService} from "../character-api.service";
 })
 export class CharacterDetailComponent {
   public character$: Observable<CharacterDetailItem>;
+
+  protected location = inject(Location);
 
   private characterApiService = inject(CharacterApiService);
 

@@ -1,9 +1,10 @@
 import {Component, inject} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {switchMap} from 'rxjs/operators';
 import {PlanetDetailItem} from '../model';
 import {PlanetApiService} from "../planet-api.service";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-planet-detail',
@@ -12,6 +13,8 @@ import {PlanetApiService} from "../planet-api.service";
 })
 export class PlanetDetailComponent {
   public planet$: Observable<PlanetDetailItem>;
+
+  protected location = inject(Location);
 
   private planetApiService = inject(PlanetApiService);
 
