@@ -82,7 +82,51 @@
         },
         "test": {
           "builder": "@angular-builders/jest:run",
+          "options": {}
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
           "options": {
+            "devServerTarget": "swapi-sample-application:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "swapi-sample-application:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "swapi-sample-application:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "swapi-sample-application:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "swapi-sample-application:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "swapi-sample-application:serve:production"
+            }
           }
         }
       }
