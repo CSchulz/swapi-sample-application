@@ -33,7 +33,9 @@
         <strong>skin color:</strong> {{ character.properties.skin_color }}
       </mat-list-item>
       <mat-list-item>
-        <strong>homeworld:</strong> {{ character.properties.homeworld }}
+        <strong>home world:</strong>&nbsp;
+        <a [routerLink]="['/planets', planet.uid]" *ngIf="planet; else unknownPlanet">{{ planet.name }}</a>
+        <ng-template #unknownPlanet>unknown</ng-template>
       </mat-list-item>
     </mat-list>
   </mat-card-content>

@@ -16,6 +16,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {CharacterApiService} from "./character-api.service";
+import {PlanetModule} from "../planet/planet.module";
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import {CharacterApiService} from "./character-api.service";
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    PlanetModule,
   ],
   declarations: [
     CharacterComponent,
