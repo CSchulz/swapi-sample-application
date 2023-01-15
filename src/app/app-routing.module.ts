@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {WelcomeComponent} from "./welcome/welcome.component";
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
   {
@@ -9,16 +9,18 @@ const routes: Routes = [
   },
   {
     path: 'characters',
-    loadChildren: () => import('./character/character.module').then(m => m.CharacterModule)
+    loadChildren: () =>
+      import('./character/character.module').then((m) => m.CharacterModule),
   },
   {
     path: 'planets',
-    loadChildren: () => import('./planet/planet.module').then(m => m.PlanetModule)
-  }
+    loadChildren: () =>
+      import('./planet/planet.module').then((m) => m.PlanetModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -15,14 +15,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { WelcomeComponent } from './welcome/welcome.component';
-import {API_URL} from "./commons/environment";
+import { API_URL } from './commons/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent,
-    WelcomeComponent
-  ],
+  declarations: [AppComponent, NavigationComponent, WelcomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,8 +37,8 @@ import {API_URL} from "./commons/environment";
     {
       provide: API_URL,
       useValue: 'https://www.swapi.tech/api/',
-    }
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

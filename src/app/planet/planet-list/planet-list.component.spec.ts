@@ -5,9 +5,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
 import { PlanetListComponent } from './planet-list.component';
-import {RouterTestingModule} from "@angular/router/testing";
-import {MockProvider} from "ng-mocks";
-import {PlanetApiService} from "../planet-api.service";
+import { RouterTestingModule } from '@angular/router/testing';
+import { MockProvider } from 'ng-mocks';
+import { PlanetApiService } from '../planet-api.service';
 
 describe(PlanetListComponent.name, () => {
   let component: PlanetListComponent;
@@ -15,7 +15,7 @@ describe(PlanetListComponent.name, () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlanetListComponent ],
+      declarations: [PlanetListComponent],
       imports: [
         NoopAnimationsModule,
         MatPaginatorModule,
@@ -23,9 +23,7 @@ describe(PlanetListComponent.name, () => {
         MatTableModule,
         RouterTestingModule,
       ],
-      providers: [
-        MockProvider(PlanetApiService)
-      ]
+      providers: [MockProvider(PlanetApiService)],
     }).compileComponents();
   }));
 

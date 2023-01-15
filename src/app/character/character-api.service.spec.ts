@@ -1,16 +1,19 @@
-import {CharacterApiService} from "./character-api.service";
-import {TestBed} from "@angular/core/testing";
-import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
-import {API_URL} from "../commons/environment";
+import { CharacterApiService } from './character-api.service';
+import { TestBed } from '@angular/core/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
+import { API_URL } from '../commons/environment';
 import {
   mockListRecordCharacterListItem,
   mockSingleRecordCharacterDetailItem,
-  mockSingleRecordCharacterDetailItemTwo
-} from "./mocks";
+  mockSingleRecordCharacterDetailItemTwo,
+} from './mocks';
 
 const listUrl = 'people/?page=1&limit=1000';
-const entryUrl = 'people/1'
-const entryUrlTwo = 'people/2'
+const entryUrl = 'people/1';
+const entryUrlTwo = 'people/2';
 
 describe(CharacterApiService.name, () => {
   let httpTestingController: HttpTestingController;
@@ -24,13 +27,13 @@ describe(CharacterApiService.name, () => {
         {
           provide: API_URL,
           useValue: '',
-        }
+        },
       ],
     });
 
     httpTestingController = TestBed.inject(HttpTestingController);
     service = TestBed.inject(CharacterApiService);
-  })
+  });
 
   afterEach(() => {
     // After every test, assert that there are no more pending requests.
@@ -85,4 +88,4 @@ describe(CharacterApiService.name, () => {
     });
     httpTestingController.expectNone(entryUrl);
   });
-})
+});

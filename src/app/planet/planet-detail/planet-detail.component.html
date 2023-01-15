@@ -4,7 +4,9 @@
   </mat-card-header>
   <img
     mat-card-image
-    [src]="'https://via.placeholder.com/468x468?text=' + character.properties.name"
+    [src]="
+      'https://via.placeholder.com/468x468?text=' + character.properties.name
+    "
   />
   <mat-card-content>
     <mat-list>
@@ -15,10 +17,12 @@
         <strong>diameter:</strong> {{ character.properties.diameter }}
       </mat-list-item>
       <mat-list-item>
-        <strong>rotation period:</strong> {{ character.properties.rotation_period }}
+        <strong>rotation period:</strong>
+        {{ character.properties.rotation_period }}
       </mat-list-item>
       <mat-list-item>
-        <strong>orbital period:</strong> {{ character.properties.orbital_period }}
+        <strong>orbital period:</strong>
+        {{ character.properties.orbital_period }}
       </mat-list-item>
       <mat-list-item>
         <strong>gravity:</strong> {{ character.properties.gravity }}

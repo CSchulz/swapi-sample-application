@@ -1,9 +1,9 @@
-import {inject, NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {CharacterComponent} from './character.component';
-import {CharacterListComponent} from "./character-list/character-list.component";
-import {CharacterDetailComponent} from "./character-detail/character-detail.component";
-import {PlanetApiService} from "../planet/planet-api.service";
+import { inject, NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { CharacterComponent } from './character.component';
+import { CharacterListComponent } from './character-list/character-list.component';
+import { CharacterDetailComponent } from './character-detail/character-detail.component';
+import { PlanetApiService } from '../planet/planet-api.service';
 
 export const routes: Routes = [
   {
@@ -12,22 +12,22 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: CharacterListComponent
+        component: CharacterListComponent,
       },
       {
         path: ':uid',
         component: CharacterDetailComponent,
         resolve: {
           // enforce hot service
-          planets: () => inject(PlanetApiService).getItemList()
-        }
+          planets: () => inject(PlanetApiService).getItemList(),
+        },
       },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class CharacterRoutingModule {}

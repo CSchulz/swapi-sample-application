@@ -1,11 +1,11 @@
-import {DataSource} from '@angular/cdk/collections';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {map, startWith, switchMap} from 'rxjs/operators';
-import {merge, Observable} from 'rxjs';
-import {PlanetListItem} from "../model";
-import {PlanetApiService} from "../planet-api.service";
-import {inject} from "@angular/core";
+import { DataSource } from '@angular/cdk/collections';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { map, startWith, switchMap } from 'rxjs/operators';
+import { merge, Observable } from 'rxjs';
+import { PlanetListItem } from '../model';
+import { PlanetApiService } from '../planet-api.service';
+import { inject } from '@angular/core';
 
 /**
  * Data source for the Characters view. This class should
@@ -28,17 +28,18 @@ export class PlanetListDataSource extends DataSource<PlanetListItem> {
     if (this.paginator && this.sort) {
       // Combine everything that affects the rendered data into one update
       // stream for the data-table to consume.
-      return merge(this.paginator.page, this.sort.sortChange)
-        .pipe(
-          startWith({}),
-          switchMap(() => this.characterApiService.getItemList()),
-          map((data) => {
-            this.length = data.length;
-            return this.getPagedData(this.getSortedData([...data ]));
+      return merge(this.paginator.page, this.sort.sortChange).pipe(
+        startWith({}),
+        switchMap(() => this.characterApiService.getItemList()),
+        map((data) => {
+          this.length = data.length;
+          return this.getPagedData(this.getSortedData([...data]));
         })
-        );
+      );
     } else {
-      throw Error('Please set the paginator and sort on the data source before connecting.');
+      throw Error(
+        'Please set the paginator and sort on the data source before connecting.'
+      );
     }
   }
 
@@ -73,15 +74,22 @@ export class PlanetListDataSource extends DataSource<PlanetListItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
-        case 'id': return compare(+a.uid, +b.uid, isAsc);
-        default: return 0;
+        case 'name':
+          return compare(a.name, b.name, isAsc);
+        case 'id':
+          return compare(+a.uid, +b.uid, isAsc);
+        default:
+          return 0;
       }
     });
   }
 }
 
 /** Simple sort comparator for example ID/Name columns (for client-side sorting). */
-function compare(a: string | number, b: string | number, isAsc: boolean): number {
+function compare(
+  a: string | number,
+  b: string | number,
+  isAsc: boolean
+): number {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

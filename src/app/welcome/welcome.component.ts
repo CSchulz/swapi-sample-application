@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.sass']
+  styleUrls: ['./welcome.component.sass'],
 })
-export class WelcomeComponent {
-
-}
+export class WelcomeComponent {}

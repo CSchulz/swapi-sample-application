@@ -24,7 +24,7 @@ describe(NavigationComponent.name, () => {
         MatListModule,
         MatSidenavModule,
         MatToolbarModule,
-      ]
+      ],
     }).compileComponents();
   }));
 

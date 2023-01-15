@@ -4,7 +4,9 @@
   </mat-card-header>
   <img
     mat-card-image
-    [src]="'https://via.placeholder.com/468x468?text=' + character.properties.name"
+    [src]="
+      'https://via.placeholder.com/468x468?text=' + character.properties.name
+    "
   />
   <mat-card-content>
     <mat-list>
@@ -34,7 +36,11 @@
       </mat-list-item>
       <mat-list-item>
         <strong>home world:</strong>&nbsp;
-        <a [routerLink]="['/planets', planet.uid]" *ngIf="planet; else unknownPlanet">{{ planet.name }}</a>
+        <a
+          [routerLink]="['/planets', planet.uid]"
+          *ngIf="planet; else unknownPlanet"
+          >{{ planet.name }}</a
+        >
         <ng-template #unknownPlanet>unknown</ng-template>
       </mat-list-item>
     </mat-list>
