@@ -1,25 +1,26 @@
-import {
-  AfterViewInit,
-  Component,
-  inject,
-  OnDestroy,
-  ViewChild,
-} from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
-import { PlanetListDataSource } from './planet-list-data-source';
-import { PlanetListItem } from '../model';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import {AfterViewInit, Component, inject, OnDestroy, ViewChild,} from '@angular/core';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import {MatTable, MatTableModule} from '@angular/material/table';
+import {PlanetListDataSource} from './planet-list-data-source';
+import {PlanetListItem} from '../model';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 const QUERY_PARAM_PAGE = 'page';
 const QUERY_PARAM_ORDER_BY = 'orderBy';
 const QUERY_PARAM_ORDER_DIR = 'orderDir';
 @Component({
+  standalone: true,
   selector: 'app-planet-list',
   templateUrl: './planet-list.component.html',
   styleUrls: ['./planet-list.component.scss'],
+  imports: [
+    MatSortModule,
+    MatPaginatorModule,
+    MatTableModule,
+    RouterLink,
+  ]
 })
 export class PlanetListComponent implements AfterViewInit, OnDestroy {
   @ViewChild(MatPaginator)

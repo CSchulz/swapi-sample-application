@@ -16,6 +16,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { API_URL } from './commons/environment';
+import {PlanetApiService} from "./planet/planet-api.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, WelcomeComponent],
@@ -32,12 +34,14 @@ import { API_URL } from './commons/environment';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    HttpClientModule,
   ],
   providers: [
     {
       provide: API_URL,
       useValue: 'https://www.swapi.tech/api/',
     },
+    PlanetApiService,
   ],
   bootstrap: [AppComponent],
 })

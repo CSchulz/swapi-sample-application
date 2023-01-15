@@ -15,8 +15,8 @@ describe(PlanetListComponent.name, () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [PlanetListComponent],
       imports: [
+        PlanetListComponent,
         NoopAnimationsModule,
         MatPaginatorModule,
         MatSortModule,
