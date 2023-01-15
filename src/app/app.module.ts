@@ -15,7 +15,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { WelcomeComponent } from './welcome/welcome.component';
-import {API_URL} from "./environment";
+import {API_URL} from "./commons/environment";
 
 @NgModule({
   declarations: [

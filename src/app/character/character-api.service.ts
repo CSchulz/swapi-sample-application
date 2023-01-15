@@ -1,31 +1,10 @@
 import {inject, Injectable} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {API_URL} from "../environment";
+import {API_URL} from "../commons/environment";
 import {CharacterDetailItem, CharacterListItem} from "./model";
 import {Observable, tap} from "rxjs";
 import {map, shareReplay} from "rxjs/operators";
-
-interface ListRecord<T> {
-  /** api status */
-  message: string;
-  /** number of total records */
-  total_records: number;
-  /** number of total pages */
-  total_pages: number;
-  /** REST hypermedia link for previous result set */
-  previous: string | null;
-  /** REST hypermedia link for next result set */
-  next: string | null;
-  /** result list */
-  results: Array<T>;
-}
-
-interface SingleRecord<T> {
-  /** api status */
-  message: string;
-  /** result entry */
-  result: T;
-}
+import {ListRecord, SingleRecord} from "../commons/rest-api";
 
 @Injectable()
 export class CharacterApiService {
