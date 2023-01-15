@@ -15,6 +15,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { WelcomeComponent } from './welcome/welcome.component';
+import {API_URL} from "./environment";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,12 @@ import { WelcomeComponent } from './welcome/welcome.component';
     MatPaginatorModule,
     MatSortModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: API_URL,
+      useValue: 'https://www.swapi.tech/api/',
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

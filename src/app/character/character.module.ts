@@ -15,6 +15,7 @@ import {CharacterDetailComponent} from "./character-detail/character-detail.comp
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
+import {CharacterApiService} from "./character-api.service";
 
 @NgModule({
   imports: [
@@ -37,6 +38,9 @@ import {MatSortModule} from "@angular/material/sort";
     CharacterComponent,
     CharacterListComponent,
     CharacterDetailComponent,
+  ],
+  providers: [
+    CharacterApiService,
   ]
 })
 export class CharacterModule {}
