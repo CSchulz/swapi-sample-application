@@ -17,15 +17,15 @@ const QUERY_PARAM_ORDER_DIR = 'orderDir';
 })
 export class CharacterListComponent implements AfterViewInit, OnDestroy {
   @ViewChild(MatPaginator)
-  public paginator!: MatPaginator;
+  protected paginator!: MatPaginator;
   @ViewChild(MatSort)
-  public sort!: MatSort;
+  protected sort!: MatSort;
   @ViewChild(MatTable)
-  public table!: MatTable<CharacterListItem>;
-  public dataSource: CharacterListDataSource;
+  protected table!: MatTable<CharacterListItem>;
+  protected dataSource: CharacterListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  public displayedColumns = ['name'];
+  protected displayedColumns = ['name'];
 
   private router = inject(Router);
   private route = inject(ActivatedRoute);
@@ -42,26 +42,29 @@ export class CharacterListComponent implements AfterViewInit, OnDestroy {
 
     // TODO if needed reset wrong query params
     // TODO could be extracted as own class or directive
-    if (this.route.snapshot.queryParams[QUERY_PARAM_PAGE]) {
-      // parse as number and remove the logical number increment
-      const pageIndex = (+this.route.snapshot.queryParams[QUERY_PARAM_PAGE]-1)
-      this.paginator.pageIndex = pageIndex >= 0 ? pageIndex : 0;
-    }
-    if (this.route.snapshot.queryParams[QUERY_PARAM_ORDER_BY] || this.route.snapshot.queryParams[QUERY_PARAM_ORDER_DIR]) {
-      const orderBy = this.route.snapshot.queryParams[QUERY_PARAM_ORDER_BY];
-      const orderDir = this.route.snapshot.queryParams[QUERY_PARAM_ORDER_DIR];
-      this.sort.sort({
-        id: this.displayedColumns.includes(orderBy) ? orderBy : 'name',
-        start: orderDir === 'asc' || orderDir === 'desc' ? orderDir : 'asc',
-        disableClear: false,
-      })
-    } else {
-      this.sort.sort({
-        id: 'name',
-        start: 'asc',
-        disableClear: false,
-      })
-    }
+    // workaround for https://github.com/angular/components/issues/8417
+    setTimeout(() => {
+      if (this.route.snapshot.queryParams[QUERY_PARAM_PAGE]) {
+        // parse as number and remove the logical number increment
+        const pageIndex = (+this.route.snapshot.queryParams[QUERY_PARAM_PAGE] - 1)
+        this.paginator.pageIndex = pageIndex >= 0 ? pageIndex : 0;
+      }
+      if (this.route.snapshot.queryParams[QUERY_PARAM_ORDER_BY] || this.route.snapshot.queryParams[QUERY_PARAM_ORDER_DIR]) {
+        const orderBy = this.route.snapshot.queryParams[QUERY_PARAM_ORDER_BY];
+        const orderDir = this.route.snapshot.queryParams[QUERY_PARAM_ORDER_DIR];
+        this.sort.sort({
+          id: this.displayedColumns.includes(orderBy) ? orderBy : 'name',
+          start: orderDir === 'asc' || orderDir === 'desc' ? orderDir : 'asc',
+          disableClear: false,
+        })
+      } else {
+        this.sort.sort({
+          id: 'name',
+          start: 'asc',
+          disableClear: false,
+        })
+      }
+    });
 
     this.subscriptions.push(
       this.dataSource.paginator.page.subscribe((event) => {
