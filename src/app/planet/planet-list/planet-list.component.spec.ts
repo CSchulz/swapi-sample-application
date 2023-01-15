@@ -5,6 +5,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
 import { PlanetListComponent } from './planet-list.component';
+import {RouterTestingModule} from "@angular/router/testing";
+import {MockProvider} from "ng-mocks";
+import {PlanetApiService} from "../planet-api.service";
 
 describe(PlanetListComponent.name, () => {
   let component: PlanetListComponent;
@@ -18,6 +21,10 @@ describe(PlanetListComponent.name, () => {
         MatPaginatorModule,
         MatSortModule,
         MatTableModule,
+        RouterTestingModule,
+      ],
+      providers: [
+        MockProvider(PlanetApiService)
       ]
     }).compileComponents();
   }));

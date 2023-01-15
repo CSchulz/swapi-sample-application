@@ -1,10 +1,13 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
 
-import { CharacterListComponent } from './character-list.component';
+import {CharacterListComponent} from './character-list.component';
+import {RouterTestingModule} from "@angular/router/testing";
+import {CharacterApiService} from "../character-api.service";
+import {MockProvider} from "ng-mocks";
 
 describe(CharacterListComponent.name, () => {
   let component: CharacterListComponent;
@@ -18,6 +21,10 @@ describe(CharacterListComponent.name, () => {
         MatPaginatorModule,
         MatSortModule,
         MatTableModule,
+        RouterTestingModule,
+      ],
+      providers: [
+        MockProvider(CharacterApiService)
       ]
     }).compileComponents();
   }));
