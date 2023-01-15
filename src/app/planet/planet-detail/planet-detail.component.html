@@ -1,0 +1,43 @@
+<mat-card *ngIf="planet$ | async as character">
+  <mat-card-header>
+    <mat-card-title>{{ character.properties.name }}</mat-card-title>
+  </mat-card-header>
+  <img
+    mat-card-image
+    [src]="'https://via.placeholder.com/468x468?text=' + character.properties.name"
+  />
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        <strong>name:</strong> {{ character.properties.name }}
+      </mat-list-item>
+      <mat-list-item>
+        <strong>diameter:</strong> {{ character.properties.diameter }}
+      </mat-list-item>
+      <mat-list-item>
+        <strong>rotation period:</strong> {{ character.properties.rotation_period }}
+      </mat-list-item>
+      <mat-list-item>
+        <strong>orbital period:</strong> {{ character.properties.orbital_period }}
+      </mat-list-item>
+      <mat-list-item>
+        <strong>gravity:</strong> {{ character.properties.gravity }}
+      </mat-list-item>
+      <mat-list-item>
+        <strong>population:</strong> {{ character.properties.population }}
+      </mat-list-item>
+      <mat-list-item>
+        <strong>climate:</strong> {{ character.properties.climate }} kg
+      </mat-list-item>
+      <mat-list-item>
+        <strong>terrain:</strong> {{ character.properties.terrain }}
+      </mat-list-item>
+      <mat-list-item>
+        <strong>surface water:</strong> {{ character.properties.surface_water }}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [routerLink]="['..']">back</button>
+  </mat-card-actions>
+</mat-card>
