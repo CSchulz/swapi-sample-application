@@ -6,7 +6,7 @@ import { MatTableModule } from '@angular/material/table';
 
 import { CharacterListComponent } from './character-list.component';
 
-describe('CharactersComponent', () => {
+describe(CharacterListComponent.name, () => {
   let component: CharacterListComponent;
   let fixture: ComponentFixture<CharacterListComponent>;
 

@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import {MockComponent} from "ng-mocks";
 import {NavigationComponent} from "./navigation/navigation.component";
 
-describe('AppComponent', () => {
+describe(AppComponent.name, () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
