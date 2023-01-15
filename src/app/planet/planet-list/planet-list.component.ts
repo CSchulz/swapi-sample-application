@@ -55,6 +55,12 @@ export class PlanetListComponent implements AfterViewInit, OnDestroy {
         start: orderDir === 'asc' || orderDir === 'desc' ? orderDir : 'asc',
         disableClear: false,
       })
+    } else {
+      this.sort.sort({
+        id: 'name',
+        start: 'asc',
+        disableClear: false,
+      })
     }
 
     this.subscriptions.push(

@@ -30,7 +30,6 @@ export class PlanetListDataSource extends DataSource<PlanetListItem> {
       // stream for the data-table to consume.
       return merge(this.paginator.page, this.sort.sortChange)
         .pipe(
-          // TODO we need the default sorting
           startWith({}),
           switchMap(() => this.characterApiService.getItemList()),
           map((data) => {
