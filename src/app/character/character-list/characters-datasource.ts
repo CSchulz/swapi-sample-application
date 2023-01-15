@@ -32,7 +32,7 @@ export class CharactersDataSource extends DataSource<CharacterListItem> {
         .pipe(
           // TODO we need the default sorting
           startWith({}),
-          switchMap(() => this.characterApiService.getCharacterList()),
+          switchMap(() => this.characterApiService.getItemList()),
           map((data) => {
             this.length = data.length;
             return this.getPagedData(this.getSortedData([...data ]));

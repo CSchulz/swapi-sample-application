@@ -17,7 +17,7 @@ export class CharacterDetailComponent {
 
   constructor(private router: Router, private route: ActivatedRoute) {
     this.character$ = this.route.params.pipe(switchMap(params => {
-      return this.characterApiService.getCharacter(+params['uid']);
+      return this.characterApiService.getItem(+params['uid']);
     }));
   }
 }
