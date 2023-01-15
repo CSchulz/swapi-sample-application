@@ -15,9 +15,5 @@ export interface CharacterDetailItem {
     mass: string;
     skin_color: string;
     homeworld: string;
-    // films array;
-    // species array;
-    // starships array;
-    // vehicles array;
   }
 }
