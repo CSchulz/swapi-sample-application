@@ -8,6 +8,7 @@ import {CharacterListItem} from "../model";
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
+  styleUrls: ['./character-list.component.scss']
 })
 export class CharacterListComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
