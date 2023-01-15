@@ -11,7 +11,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="[row.uid]"></tr>
   </table>
 
-  <mat-paginator #paginator
+  <mat-paginator
       [length]="dataSource.length"
       [pageIndex]="0"
       [pageSize]="10"
