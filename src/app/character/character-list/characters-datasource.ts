@@ -34,8 +34,8 @@ export class CharactersDataSource extends DataSource<CharacterListItem> {
           startWith({}),
           switchMap(() => this.characterApiService.getCharacterList()),
           map((data) => {
-            this.length = data.total_records;
-            return this.getPagedData(this.getSortedData([...data.results ]));
+            this.length = data.length;
+            return this.getPagedData(this.getSortedData([...data ]));
         })
         );
     } else {

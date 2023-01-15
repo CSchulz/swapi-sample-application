@@ -1,39 +1,39 @@
 <mat-card *ngIf="character$ | async as character">
   <mat-card-header>
-    <mat-card-title>{{ character.name }}</mat-card-title>
+    <mat-card-title>{{ character.properties.name }}</mat-card-title>
   </mat-card-header>
   <img
     mat-card-image
-    [src]="'https://via.placeholder.com/468x468?text=' + character.name"
+    [src]="'https://via.placeholder.com/468x468?text=' + character.properties.name"
   />
   <mat-card-content>
     <mat-list>
       <mat-list-item>
-        {{ character.name }}
+        <strong>name:</strong> {{ character.properties.name }}
       </mat-list-item>
       <mat-list-item>
-        {{ character.birth_year }}
+        <strong>birth year:</strong> {{ character.properties.birth_year }}
       </mat-list-item>
       <mat-list-item>
-        {{ character.eye_color }}
+        <strong>eye color:</strong> {{ character.properties.eye_color }}
       </mat-list-item>
       <mat-list-item>
-        {{ character.gender }}
+        <strong>gender:</strong> {{ character.properties.gender }}
       </mat-list-item>
       <mat-list-item>
-        {{ character.hair_color }}
+        <strong>hair color:</strong> {{ character.properties.hair_color }}
       </mat-list-item>
       <mat-list-item>
-        {{ character.height }} cm
+        <strong>height:</strong> {{ character.properties.height }} cm
       </mat-list-item>
       <mat-list-item>
-        {{ character.mass }} kg
+        <strong>mass:</strong> {{ character.properties.mass }} kg
       </mat-list-item>
       <mat-list-item>
-        {{ character.skin_color }}
+        <strong>skin color:</strong> {{ character.properties.skin_color }}
       </mat-list-item>
       <mat-list-item>
-        {{ character.homeworld }}
+        <strong>homeworld:</strong> {{ character.properties.homeworld }}
       </mat-list-item>
     </mat-list>
   </mat-card-content>
