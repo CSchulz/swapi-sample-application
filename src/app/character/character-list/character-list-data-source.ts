@@ -12,7 +12,7 @@ import {inject} from "@angular/core";
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class CharactersDataSource extends DataSource<CharacterListItem> {
+export class CharacterListDataSource extends DataSource<CharacterListItem> {
   public length = 0;
   public paginator: MatPaginator | undefined;
   public sort: MatSort | undefined;

@@ -12,7 +12,7 @@ import {inject} from "@angular/core";
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class PlanetDatasource extends DataSource<PlanetListItem> {
+export class PlanetListDataSource extends DataSource<PlanetListItem> {
   public length = 0;
   public paginator: MatPaginator | undefined;
   public sort: MatSort | undefined;

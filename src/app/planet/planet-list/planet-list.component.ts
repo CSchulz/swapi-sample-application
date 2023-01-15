@@ -2,7 +2,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTable} from '@angular/material/table';
-import {PlanetDatasource} from './planet-datasource';
+import {PlanetListDataSource} from './planet-list-data-source';
 import {PlanetListItem} from "../model";
 
 @Component({
@@ -11,16 +11,19 @@ import {PlanetListItem} from "../model";
   styleUrls: ['./planet-list.component.scss']
 })
 export class PlanetListComponent implements AfterViewInit {
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<PlanetListItem>;
-  dataSource: PlanetDatasource;
+  @ViewChild(MatPaginator)
+  public paginator!: MatPaginator;
+  @ViewChild(MatSort)
+  public sort!: MatSort;
+  @ViewChild(MatTable)
+  public table!: MatTable<PlanetListItem>;
+  public dataSource: PlanetListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['name'];
+  public displayedColumns = ['name'];
 
   constructor() {
-    this.dataSource = new PlanetDatasource();
+    this.dataSource = new PlanetListDataSource();
   }
 
   ngAfterViewInit(): void {

@@ -2,7 +2,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTable} from '@angular/material/table';
-import {CharactersDataSource} from './characters-datasource';
+import {CharacterListDataSource} from './character-list-data-source';
 import {CharacterListItem} from "../model";
 
 @Component({
@@ -11,16 +11,19 @@ import {CharacterListItem} from "../model";
   styleUrls: ['./character-list.component.scss']
 })
 export class CharacterListComponent implements AfterViewInit {
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<CharacterListItem>;
-  dataSource: CharactersDataSource;
+  @ViewChild(MatPaginator)
+  public paginator!: MatPaginator;
+  @ViewChild(MatSort)
+  public sort!: MatSort;
+  @ViewChild(MatTable)
+  public table!: MatTable<CharacterListItem>;
+  public dataSource: CharacterListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['name'];
+  public displayedColumns = ['name'];
 
   constructor() {
-    this.dataSource = new CharactersDataSource();
+    this.dataSource = new CharacterListDataSource();
   }
 
   ngAfterViewInit(): void {
